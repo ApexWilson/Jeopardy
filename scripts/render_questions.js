@@ -1,11 +1,3 @@
-let categories = [
-  "Robots",
-  "Nicknames",
-  "Famous first words",
-  "Going 'dark'",
-  "Fictional companies",
-  "Painfully obvious"
-];
 let numCategories = categories.length;
 let questionValues = [100, 200, 300, 400, 500];
 
@@ -43,11 +35,13 @@ let questionValues = [100, 200, 300, 400, 500];
  *      Need more help? Check out https://bit.ly/2EIsD3b or ask a volunteer.
  */
 function renderQuestions() {
-  for (let j = 0; j < numCategories; j++) {
-    for (let i = 0; i < questionValues.length; i++) {
-      const question = questionValues[i];
-      const q = `<div class='question'><div class='question-cell'>${question}</div></div>`;
-      $("#questions").append(q);
+  for (let i = 0; i < numCategories; i++) {
+    let q = `<div class= 'questions-column'>`;
+    for (let j = 0; j < questionValues.length; j++) {
+      const question = questionValues[j];
+      q += `<div class='question-cell' data-category = ${i}><div class='question-tile'>${question}</div></div>`;
     }
+    q += `</div>`;
+    $("#questions").append(q);
   }
 }
